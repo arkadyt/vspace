@@ -4,6 +4,10 @@
   "main": "server.js",
   "author": "arkadyt",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
   "dependencies": {
     "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
