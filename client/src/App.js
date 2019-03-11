@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
-import NavBar from './components/NavBar/NavBar.js'
 import RootLayout from './components/RootLayout/RootLayout.js'
+import NavBar from './components/NavBar/NavBar.js'
+import store from './state/store.js'
 
 const App = () => {
   return (
-    <div>
-      <NavBar />
-      <RootLayout />
-    </div>
+    <Provider store={store}>
+      <Router>
+        <Fragment>
+          <RootLayout />
+          <NavBar />
+        </Fragment>
+      </Router>
+    </Provider>
   )
 }
 
