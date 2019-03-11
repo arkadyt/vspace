@@ -1,0 +1,16 @@
+{
+  "name": "hp-take-home",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/arkadyt/hp-take-home",
+  "author": "arkadyt <23281304+arkadyt@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "install": "cd client && yarn install && cd ../server && yarn install",
+    "dev": "concurrently \"cd client && yarn start\" \"cd server && yarn start\""
+  },
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "json-server": "^0.14.2"
+  }
+}
