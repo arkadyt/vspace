@@ -1,13 +1,13 @@
 import React from 'react'
 
 import NavBar from './components/NavBar/NavBar.js'
-import Root from './components/Root/Root.js'
+import RootLayout from './components/RootLayout/RootLayout.js'
 
 const App = () => {
   return (
     <div>
       <NavBar />
-      <Root />
+      <RootLayout />
     </div>
   )
 }

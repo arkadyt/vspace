@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 
 import Home from '../Home/Home.js'
 import ProductView from '../ProductView/ProductView.js'
-import "./Root.css"
+import "./RootLayout.css"
 
-class Root extends Component {
+class RootLayout extends Component {
   render() {
     return (
-      <div className="Root-container">
+      <div className="RootLayout-container">
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/product/:productId" component={ProductView} />
@@ -25,4 +25,4 @@ const mapStateToProps = state => ({
 
 export default connect({
   mapStateToProps
-})(Root);
+})(RootLayout)
