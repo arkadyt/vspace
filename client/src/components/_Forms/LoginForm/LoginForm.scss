@@ -1,0 +1,9 @@
+@import 'styles/_variables.scss';
+
+.LoginForm-container {
+  background: $color_secondary;
+  border-bottom: .2rem solid darken($color_secondary, 5%);
+  border-radius: .5rem;
+  box-shadow: $shadow_secondary;
+  padding: 3rem;
+}
