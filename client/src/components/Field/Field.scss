@@ -1,0 +1,50 @@
+@import 'styles/_variables.scss';
+
+.Field-widget {
+  margin: .5rem 0;
+  padding: .6rem 2rem;
+
+  font-size: 1.5rem;
+  font-family: "Montserrat";
+  color: $color_font_primary;
+
+  border: 1px solid lighten($color_primary, 15%);
+  border-radius: 5rem;
+  outline: none;
+  transition: .15s ease-out;
+}
+
+input[type=text].Field-widget {
+  @extend .Field-widget;
+  padding: .6rem 1.25rem;
+  background-color: $color_primary;
+
+  &::placeholder {
+    color: $color_font_secondary;
+  }
+}
+
+input[type=button].Field-widget,
+input[type=submit].Field-widget {
+  @extend .Field-widget;
+
+  background-color: $color_accent_primary;
+  color: $color_font_tertiary;
+  box-shadow: $shadow_primary;
+  text-shadow: 0 -.1rem .1rem #006799, 
+    .1rem 0 .1rem #006799, 
+    0 .1rem .1rem #006799, 
+    -.1rem 0 .1rem #006799;
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: .1s ease;
+
+  &:active {
+    box-shadow: unset;
+    transform: translateY(.1rem);
+  }
+
+  &:hover {
+    background-color: lighten($color_accent_primary, 5%);
+  }
+}
