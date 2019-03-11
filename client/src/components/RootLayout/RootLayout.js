@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router'
 import { connect } from 'react-redux'
 
-import Home from '../Home/Home.js'
-import ProductView from '../ProductView/ProductView.js'
+import HomePage from '../_Pages/HomePage/HomePage.js'
+import ProductViewPage from '../_Pages/ProductViewPage/ProductViewPage.js'
 import "./RootLayout.css"
 
 class RootLayout extends Component {
@@ -11,8 +11,8 @@ class RootLayout extends Component {
     return (
       <div className="RootLayout-container">
         <Switch>
-          <Route path="/home" component={Home} />
-          <Route path="/product/:productId" component={ProductView} />
+          <Route path="/home" component={HomePage} />
+          <Route path="/product/:productId" component={ProductViewPage} />
         </Switch>
       </div>
     )
