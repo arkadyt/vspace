@@ -1,0 +1,42 @@
+@import 'styles/_variables.scss';
+
+.NavBar-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+
+  height: 4rem;
+
+  background: $color_secondary;
+  box-shadow: 0 0 1rem .5rem rgba(0, 0, 0, 0.2);
+
+  .NavBar-item {
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+
+    font-size: 1.5rem;
+    color: $color_font_primary;
+
+    &.justify-start {
+      margin-right: auto;
+    }
+  }
+
+  .NavBar-navlink {
+    @extend .NavBar-item;
+
+    text-decoration: none;
+    padding: 0 4rem;
+    transition: background .25s ease;
+
+    &:hover {
+      background: darken($color_secondary, 5%);
+    }
+
+    &.active {
+      border-top: .2rem transparent solid;
+      border-bottom: .2rem $color-accent-main solid;
+    }
+  }
+}
