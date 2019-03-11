@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import 'styles/_variables.scss';
+
+body, * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: $color_font_primary;
+}
+
+p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: $color_font_primary;
+}
