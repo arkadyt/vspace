@@ -1,3 +1,17 @@
-$color_secondary:            #eee;
-$color_font_primary:         #333;
-$color_accent_main:          #888;
+$color_primary:         #35383b;
+$color_secondary:       #4b4f53;
+$color_tertiary:        #444;
+
+$color_font_primary:    #eee;
+$color_font_secondary:  #777;
+$color_font_tertiary:   #eee;
+
+$color_accent_primary:  cornflowerblue;
+$color_accent_secondary:darken(cornflowerblue, 4%);
+
+$color_shadow_primary:  rgba(0, 0, 0, .2);
+
+$shadow_primary:        0 0 1rem .15rem $color_shadow_primary;
+$shadow_secondary:      0 0 1rem .075rem $color_shadow_primary;
+
+$nav_height:            4rem;

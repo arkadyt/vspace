@@ -1,2 +1,10 @@
+@import 'styles/_variables.scss';
+
 .RootLayout-container {
+  display: flex;
+  height: calc(100vh - #{$nav_height});
+  margin-top: $nav_height;
+  justify-content: center;
+  align-items: center;
+  background: $color_primary;
 }
