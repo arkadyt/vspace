@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router'
 import { connect } from 'react-redux'
 
-import HomePage from '../_Pages/HomePage/HomePage.js'
-import ProductViewPage from '../_Pages/ProductViewPage/ProductViewPage.js'
-import "./RootLayout.css"
+import HomePage from '../_Pages/HomePage/HomePage'
+import ProductViewPage from '../_Pages/ProductViewPage/ProductViewPage'
+import "./RootLayout.scss"
 
 class RootLayout extends Component {
   render() {
@@ -23,6 +23,6 @@ const mapStateToProps = state => ({
   products: state.products
 })
 
-export default connect({
+export default connect(
   mapStateToProps
-})(RootLayout)
+)(RootLayout)
