@@ -1,3 +1,5 @@
+global.__basedir = __dirname;
+
 const express = require('express')
 const { jsonServer, jsonServerRewriter } = require('./api/product.js')
 const dbConnection = require('./db-connection.js')

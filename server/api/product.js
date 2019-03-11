@@ -1,13 +1,14 @@
 const path = require('path')
 const jsonServer = require('json-server')
 const server = jsonServer.create()
-const router = jsonServer.router(path.join(__dirname, 'data/test_data.json'))
+const router = jsonServer.router(global.__basedir + '/data/test_data.json')
 
 const rewriter = jsonServer.rewriter({
-  '/product/*': '/data?product_id=$1' 
+  '/product/*': '/data?product_id=$1',
+  '/products': '/data'
 })
 
 module.exports = {
-  jsonServerRewriter,
-  jsonServer
+  jsonServerRewriter: rewriter,
+  jsonServer: router
 }
