@@ -1,5 +1,8 @@
 import React from 'react'
 import { NavLink, withRouter, Route, Switch } from 'react-router-dom'
+import {
+  FaAngleLeft as IconLeft
+} from 'react-icons/fa'
 import { connect } from 'react-redux'
 
 import { logoutUser } from '../../state/actions/userActions.js'
@@ -17,6 +20,7 @@ const NavBar = ({
           <button 
             className="NavBar-button justify-start"
             onClick={history.goBack}>
+            <IconLeft />&nbsp;&nbsp;&nbsp;
             Go Back
           </button>
         )} />
