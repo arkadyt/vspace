@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'development') {
   whitelist = ['https://hp.arkadyt.com']
 }
 
-console.log('chosen whitelist:', whitelist)
+console.log('CORS whitelist:', whitelist)
 
 const corsOptions = {
   origin: function (origin, callback) {
