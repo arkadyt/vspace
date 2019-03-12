@@ -4,7 +4,7 @@ const server = jsonServer.create()
 const router = jsonServer.router(global.__basedir + '/data/test_data.json')
 
 const rewriter = jsonServer.rewriter({
-  '/product/*': '/data?product_id=$1',
+  '/products/*': '/data?product_id=$1',
   '/products': '/data'
 })
 
