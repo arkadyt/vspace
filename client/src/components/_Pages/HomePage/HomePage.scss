@@ -1,0 +1,9 @@
+@import 'styles/_variables.scss';
+
+.HomePage-container {
+  display: grid;
+  padding: 2rem;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+}

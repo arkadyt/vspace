@@ -1,11 +1,52 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const HomePage = () => {
+import ProductCard from '../../ProductCard/ProductCard'
+import { loadProducts } from '../../../state/actions/productActions.js'
+import './HomePage.scss'
+
+const HomePage = ({
+  products,
+  loadProducts
+}) => {
+  console.log('products:', products)
+
+  let renderValue
+
+  if (products.length === 0) {
+    console.log('fetch products')
+    loadProducts()
+    renderValue = (
+      <p>Please wait, loading...</p>
+    )
+  } else {
+    renderValue = products.map(item => {
+      return (
+        <ProductCard
+          key={item.product_id}
+          id={item.product_id}
+          title={item.title}
+          priceStr={item.price_str}
+          image={item.media[0].sizes[0].url}
+          createdAt={item.created_at}
+        />
+      )
+    })
+  }
+
   return (
-    <div>
-      <h2>Home Page</h2>
+    <div className="HomePage-container">
+      {renderValue}
     </div>
   )
 }
 
-export default HomePage
+const mapStateToProps = state => ({
+  products: state.products
+})
+
+const mapDispatchToProps = {
+  loadProducts 
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
