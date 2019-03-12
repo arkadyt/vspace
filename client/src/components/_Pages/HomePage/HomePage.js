@@ -25,7 +25,7 @@ const HomePage = ({
           id={item.product_id}
           title={item.title}
           priceStr={item.price_str}
-          image={item.media[0].sizes[0].url}
+          image={item.media[0].sizes[3].url}
           createdAt={item.created_at}
           style={{ animationDelay: `${idx * 100}ms` }}
         />
