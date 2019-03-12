@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 import ContentPad from '../ContentPad/ContentPad'
 import "./ProductCard.scss"
@@ -10,16 +11,19 @@ const dateFormatOptions = {
 }
 
 const ProductCard = ({
+  id,
   title,
   image,
   priceStr,
-  createdAt
+  createdAt,
+  history
 }) => {
   return (
     <ContentPad 
       className="ProductCard-container"
       padding={0}
-      borderRadius="4rem 1rem 4rem 1rem">
+      borderRadius="4rem 1rem 4rem 1rem"
+      onClick={() => history.push(`/product/${id}`)}>
       <img className="ProductCard-img" src={image} alt="" />
       <div className="ProductCard-content">
         <h2 className="ProductCard-title">
@@ -37,4 +41,4 @@ const ProductCard = ({
   )
 }
 
-export default ProductCard
+export default withRouter(ProductCard)
