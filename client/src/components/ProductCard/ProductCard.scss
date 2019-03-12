@@ -1,0 +1,73 @@
+@import 'styles/_variables.scss';
+
+.ProductCard-container {
+  color: $color_font_primary;
+  height: 35rem;
+  width: 30rem;
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    opacity: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: $color_accent_primary;
+    transition: .25s ease;
+  }
+
+  &:hover::after {
+    opacity: .8;
+  }
+
+  .ProductCard-img {
+    width: 100%;
+    height: 55%;
+    object-fit: cover;
+    clip-path: polygon(0 0,100% 0,100% 92%,0 100%);
+  }
+
+  .ProductCard-content {
+    padding: 2rem;
+    margin-top: -.5rem;
+    position: relative;
+    height: 45%;
+
+    .ProductCard-title {
+      text-align: right;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .ProductCard-price {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -70%);
+      z-index: 2;
+      font-size: 5rem;
+      text-align: center;
+      margin-top: 1rem;
+      transition: .25s ease;
+    }
+
+    .ProductCard-date {
+      text-align: left;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+
+  &:hover .ProductCard-price {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    z-index: 2;
+  }
+}
