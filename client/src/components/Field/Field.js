@@ -4,19 +4,20 @@ import './Field.scss'
 const Field = ({
   type,
   value,
+  onClick,
   onChange,
   placeholder
 }) => {
-  const className = "Field-widget";
+  const className = "Field-widget"
 
   switch(type) {
     case 'button':
     case 'submit':
       return (
         <input
-          type="button"
+          type={type}
           value={value} 
-          onChange={onChange}
+          onClick={onClick}
           className={className}
           placeholder={placeholder} />
       )
