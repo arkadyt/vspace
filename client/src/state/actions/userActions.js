@@ -11,3 +11,13 @@ export function loginUser(name, callback) {
     if (callback) callback()
   }
 }
+
+export function logoutUser(callback) {
+  return dispatch => {
+    dispatch({
+      type: types.LOGOUT_USER
+    })
+
+    if (callback) callback()
+  }
+}

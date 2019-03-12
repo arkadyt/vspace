@@ -1,17 +1,23 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+
+import { logoutUser } from '../../state/actions/userActions.js'
 import './NavBar.scss'
 
 const NavBar = ({
-  name
+  name,
+  logoutUser
 }) => {
   return (
     <div className="NavBar-container">
-      <NavLink to="/" className="NavBar-navlink justify-start" activeClassName="active">
+      <NavLink exact to="/" className="NavBar-navlink justify-start" activeClassName="active">
         Home
       </NavLink>
       <span className="NavBar-item">Welcome, {name}</span>
+      <button className="NavBar-button" onClick={() => logoutUser()}>
+        Log out
+      </button>
       <NavLink to="/users" className="NavBar-navlink" activeClassName="active">
         View all users
       </NavLink>
@@ -23,4 +29,8 @@ const mapStateToProps = state => ({
   name: state.users.currentUserName
 })
 
-export default connect(mapStateToProps)(NavBar)
+const mapDispatchToProps = {
+  logoutUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar)

@@ -23,6 +23,8 @@
     font-size: 1.5rem;
     color: $color_font_primary;
 
+    user-select: none;
+
     &.justify-start {
       margin-right: auto;
     }
@@ -43,5 +45,14 @@
       border-top: .2rem transparent solid;
       border-bottom: .2rem $color_accent_primary solid;
     }
+  }
+
+  .NavBar-button {
+    @extend .NavBar-navlink;
+
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    outline: none;
   }
 }
