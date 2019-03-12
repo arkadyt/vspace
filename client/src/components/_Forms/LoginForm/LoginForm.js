@@ -20,10 +20,8 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <ContentPad>
-        <form 
-          className="LoginForm-container" 
-          onSubmit={this.handleSubmit.bind(this)}>
+      <ContentPad className="LoginForm-container">
+        <form onSubmit={this.handleSubmit.bind(this)}>
           <h1>Please login</h1>
           <p>To proceed, please login by entering your name in the box below:</p>
           <Field
