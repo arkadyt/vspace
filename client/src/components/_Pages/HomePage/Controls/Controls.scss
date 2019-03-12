@@ -1,0 +1,17 @@
+.Controls-container {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 5rem;
+
+  .Controls-sorter {
+    flex-basis: 50rem;
+  }
+
+  .Controls-paginator {
+    flex-basis: 20rem;
+    margin-left: 2rem;
+    flex-grow: 1;
+  }
+}
+

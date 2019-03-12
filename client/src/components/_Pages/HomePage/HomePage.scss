@@ -1,10 +1,14 @@
 @import 'styles/_variables.scss';
 
 .HomePage-container {
-  display: grid;
   padding: 2rem;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2rem;
   margin-top: $nav_height;
+
+  .HomePage-grid {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    margin: 2rem 0;
+  }
 }

@@ -1,7 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {
+  FaAngleRight as IconRight,
+  FaAngleLeft as IconLeft
+} from 'react-icons/fa'
 
 import ProductCard from '../../ProductCard/ProductCard'
+import Controls from './Controls/Controls'
 import { loadProducts } from '../../../state/actions/productActions.js'
 import './HomePage.scss'
 
@@ -19,6 +24,9 @@ const HomePage = ({
     )
   } else {
     renderValue = products.map((item, idx) => {
+      if (idx > 5)
+        return;
+
       return (
         <ProductCard
           key={item.product_id}
@@ -35,7 +43,11 @@ const HomePage = ({
 
   return (
     <div className="HomePage-container">
-      {renderValue}
+      <Controls />
+      <div className="HomePage-grid">
+        {renderValue}
+      </div>
+      <Controls />
     </div>
   )
 }
