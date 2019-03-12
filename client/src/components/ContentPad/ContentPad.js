@@ -4,11 +4,12 @@ import "./ContentPad.scss"
 const ContentPad = ({
   children,
   className,
-  padding
+  padding,
+  borderRadius
 }) => {
   return (
     <div className={["ContentPad-container", className].join(' ')}
-      style={{ padding: `${padding}rem` }}>
+      style={{ padding: `${padding}rem`, borderRadius }}>
       {children}
     </div>
   )
