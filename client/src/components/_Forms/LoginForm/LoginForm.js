@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 import Field from '../../Field/Field'
-import './LoginForm.scss'
+import ContentPad from '../../ContentPad/ContentPad'
 import { loginUser } from '../../../state/actions/userActions.js'
 
 class LoginForm extends Component {
@@ -20,19 +20,21 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <form 
-        className="LoginForm-container" 
-        onSubmit={this.handleSubmit.bind(this)}>
-        <h1>Please login</h1>
-        <p>To proceed, please login by entering your name in the box below:</p>
-        <Field
-          value={this.state.name}
-          onChange={e => this.setState({ name: e.target.value })}
-          placeholder="eg. Arnold" />
-        <Field
-          type="submit"
-          value="Log in" />
-      </form>
+      <ContentPad>
+        <form 
+          className="LoginForm-container" 
+          onSubmit={this.handleSubmit.bind(this)}>
+          <h1>Please login</h1>
+          <p>To proceed, please login by entering your name in the box below:</p>
+          <Field
+            value={this.state.name}
+            onChange={e => this.setState({ name: e.target.value })}
+            placeholder="eg. Arnold" />
+          <Field
+            type="submit"
+            value="Log in" />
+        </form>
+      </ContentPad>
     )    
   }
 }
