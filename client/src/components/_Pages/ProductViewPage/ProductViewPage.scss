@@ -1,0 +1,30 @@
+@import 'styles/_variables.scss';
+
+.ProductViewPage-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 6fr 1fr;
+  grid-gap: 5rem;
+  padding: 4rem;
+  width: 100vw;
+  min-height: 100vh;
+
+  .ProductViewPage-imgviewer {
+    width: 100%;
+    height: 70vh;
+  }
+
+  .ProductViewPage-infoblock {
+    grid-row: 1/3;
+    grid-column: 2/3;
+
+    .ProductViewPage-list {
+      color: $color_font_primary; 
+      font-size: 1.5rem;
+
+      li {
+        margin: 1rem 0;
+      }
+    }
+  }
+}
