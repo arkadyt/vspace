@@ -10,6 +10,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  font-size: 75%;
+}
+
 body {
   background: $color_primary;
 }
