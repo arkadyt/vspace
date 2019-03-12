@@ -16,11 +16,13 @@ const ProductCard = ({
   image,
   priceStr,
   createdAt,
-  history
+  history,
+  style
 }) => {
   return (
     <ContentPad 
       className="ProductCard-container"
+      style={style}
       padding={0}
       borderRadius="4rem 1rem 4rem 1rem"
       onClick={() => history.push(`/product/${id}`)}>

@@ -9,8 +9,6 @@ const HomePage = ({
   products,
   loadProducts
 }) => {
-  console.log('products:', products)
-
   let renderValue
 
   if (products.length === 0) {
@@ -20,7 +18,7 @@ const HomePage = ({
       <p>Please wait, loading...</p>
     )
   } else {
-    renderValue = products.map(item => {
+    renderValue = products.map((item, idx) => {
       return (
         <ProductCard
           key={item.product_id}
@@ -29,6 +27,7 @@ const HomePage = ({
           priceStr={item.price_str}
           image={item.media[0].sizes[0].url}
           createdAt={item.created_at}
+          style={{ animationDelay: `${idx * 100}ms` }}
         />
       )
     })

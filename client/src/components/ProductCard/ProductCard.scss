@@ -7,6 +7,10 @@
   position: relative;
   cursor: pointer;
 
+  opacity: 0;
+  animation: fadein .5s ease;
+  animation-fill-mode: forwards;
+
   &::after {
     opacity: 0;
     content: "";
@@ -71,4 +75,8 @@
     z-index: 2;
     font-size: 7rem;
   }
+}
+
+@keyframes fadein {
+  to { opacity: 1 }
 }
