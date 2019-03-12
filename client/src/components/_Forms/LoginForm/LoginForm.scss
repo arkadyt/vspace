@@ -1,0 +1,7 @@
+@import 'styles/_variables.scss';
+
+.LoginForm-container {
+  // neutralize out the default.
+  // hacky, I know.
+  margin-top: -$nav_height;
+}

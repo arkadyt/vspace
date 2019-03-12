@@ -14,7 +14,7 @@ const NavBar = ({
       <NavLink exact to="/" className="NavBar-navlink justify-start" activeClassName="active">
         Home
       </NavLink>
-      <span className="NavBar-item">Welcome, {name}</span>
+      <span className="NavBar-item">Welcome, {name}!</span>
       <button className="NavBar-button" onClick={() => logoutUser()}>
         Log out
       </button>

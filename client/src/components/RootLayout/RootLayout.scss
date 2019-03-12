@@ -2,9 +2,8 @@
 
 .RootLayout-container {
   display: flex;
-  height: calc(100vh - #{$nav_height});
+  min-height: 100vh;
   margin-top: $nav_height;
   justify-content: center;
   align-items: center;
-  background: $color_primary;
 }

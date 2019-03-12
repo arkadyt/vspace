@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 import Field from '../../Field/Field'
 import ContentPad from '../../ContentPad/ContentPad'
 import { loginUser } from '../../../state/actions/userActions.js'
+import './LoginForm.scss'
 
 class LoginForm extends Component {
   state = {
