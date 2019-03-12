@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const { MONGO_URI } = require('./keys/keys.dev.js')
+const { MONGO_URI } = require('./config/keys.js')
 
 /**
  * Attempts to connect to MongoDB.

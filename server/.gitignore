@@ -1,5 +1,5 @@
 node_modules/
 
 yarn.lock
-keys/keys.dev.js
+config/keys.dev.js
 .tern-port

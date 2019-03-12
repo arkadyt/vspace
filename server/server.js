@@ -3,7 +3,7 @@ global.__basedir = __dirname;
 const express = require('express')
 const { jsonServer, jsonServerRewriter } = require('./api/product.js')
 const dbConnection = require('./db-connection.js')
-const cors = require('./cors.policy.js')
+const cors = require('./config/cors.policy.js')
 
 const app = express()
 app.use(cors)
