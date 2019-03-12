@@ -11,12 +11,13 @@
 
   .BrowserControls-item {
     flex-grow: 1;
+    flex-basis: 10rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: $color_font_primary;
 
     user-select: none;
@@ -30,7 +31,6 @@
     @extend .BrowserControls-item;
 
     text-decoration: none;
-    padding: 0 4rem;
     transition: background .25s ease;
 
     &:hover {
