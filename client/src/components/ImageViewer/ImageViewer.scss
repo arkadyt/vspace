@@ -1,16 +1,19 @@
+$_local_viewport_height: 60rem;
+
 .ImageViewer-container {
   position: sticky;
   top: 8rem;
   width: 100%;
-  height: 45rem;
+  height: $_local_viewport_height;
 
   .ImageViewer-viewport {
     position: relative;
-    height: 45rem;
+    height: $_local_viewport_height;
+
     border: 0;
 
     .ImageViewer-imgbg {
-      height: 45rem;
+      height: $_local_viewport_height;
       width: 100%;
       filter: blur(5px) brightness(0.3);
       object-fit: cover;
@@ -20,8 +23,11 @@
       position: absolute;
       top: 0;
       left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       transform: translateX(-50%);
-      height: 45rem;
+      height: $_local_viewport_height;
     }
   }
 
