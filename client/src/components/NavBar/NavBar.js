@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, withRouter, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { logoutUser } from '../../state/actions/userActions.js'
@@ -7,13 +7,29 @@ import './NavBar.scss'
 
 const NavBar = ({
   name,
-  logoutUser
+  logoutUser,
+  history
 }) => {
   return (
     <div className="NavBar-container">
-      <NavLink exact to="/" className="NavBar-navlink justify-start" activeClassName="active">
-        Home
-      </NavLink>
+      <Switch>
+        <Route path="/product/:id" render={() => (
+          <button 
+            className="NavBar-button justify-start"
+            onClick={history.goBack}>
+            Go Back
+          </button>
+        )} />
+        <Route render={() => (
+          <NavLink 
+            exact 
+            to="/" 
+            className="NavBar-navlink justify-start" 
+            activeClassName="active">
+            Home
+          </NavLink>
+        )} />
+      </Switch>
       <span className="NavBar-item">Welcome, {name}!</span>
       <button className="NavBar-button" onClick={() => logoutUser()}>
         Log out
@@ -33,4 +49,4 @@ const mapDispatchToProps = {
   logoutUser
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar))
