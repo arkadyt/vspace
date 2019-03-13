@@ -9,7 +9,6 @@ import './HomePage.scss'
 
 class HomePage extends Component {
   setNextOrder(opts, field) {
-    console.log('setNextOrder', opts, field)
     const option = opts[field]
     
     if (option === 'desc') {
@@ -24,12 +23,15 @@ class HomePage extends Component {
   }
 
   updateSortOrder(field) {
-    const { sortOpts, loadProducts } = this.props
+    const { 
+      sortOpts,
+      loadProducts
+    } = this.props
 
     const newOpts = cloneDeep(sortOpts)
     this.setNextOrder(newOpts, field)
 
-    loadProducts(newOpts)
+    loadProducts({ sortOpts: newOpts })
   }
 
   getButtonBackground(sortOrder) {
@@ -44,9 +46,13 @@ class HomePage extends Component {
     const {
       products,
       sortOpts,
-      loadProducts
+      loadProducts,
+      totalCount,
+      pageIdx
     } = this.props
   
+    console.log('homepage render call')
+
     let renderValue
 
     if (!products || products.length === 0) {
@@ -61,14 +67,27 @@ class HomePage extends Component {
         this.updateSortOrder.bind(this, 'created_at'),
         this.updateSortOrder.bind(this, 'title'),
       ]
-      const callbacksPaginator = [
-        undefined,
-      ]
       const backgroundsSorter = [
         undefined,
         this.getButtonBackground(sortOpts['price']),
         this.getButtonBackground(sortOpts['created_at']),
         this.getButtonBackground(sortOpts['title'])
+      ]
+      const countTextPaginator = `${pageIdx}/${Math.ceil(totalCount/6)}`
+      const callbacksPaginator = [
+        () => {
+          const newIdx = pageIdx - 1
+          if (newIdx > 0) {
+            loadProducts({ pageIdx: newIdx })
+          }
+        },
+        undefined,
+        () => {
+          const newIdx = pageIdx + 1
+          if (newIdx < Math.ceil(totalCount/6) + 1) {
+            loadProducts({ pageIdx: newIdx })
+          }
+        },
       ]
 
       renderValue = (
@@ -76,12 +95,10 @@ class HomePage extends Component {
           <Controls
             callbacksSorter={callbacksSorter}
             backgroundsSorter={backgroundsSorter}
+            countTextPaginator={countTextPaginator}
             callbacksPaginator={callbacksPaginator} />
           <div className="HomePage-grid">
           {products.map((item, idx) => {
-            if (idx > 5)
-              return;
-
             return (
               <ProductCard
                 key={item.product_id}
@@ -96,7 +113,9 @@ class HomePage extends Component {
           })}
           </div>
           <Controls
-            callbacksSorter={callbacksSorter} 
+            callbacksSorter={callbacksSorter}
+            backgroundsSorter={backgroundsSorter}
+            countTextPaginator={countTextPaginator}
             callbacksPaginator={callbacksPaginator} />
         </Fragment>
       )
@@ -112,7 +131,9 @@ class HomePage extends Component {
 
 const mapStateToProps = state => ({
   products: state.products.data,
-  sortOpts: state.products.sortOpts
+  sortOpts: state.products.sortOpts,
+  totalCount: state.products.totalCount,
+  pageIdx: state.products.pageIdx
 })
 
 const mapDispatchToProps = {

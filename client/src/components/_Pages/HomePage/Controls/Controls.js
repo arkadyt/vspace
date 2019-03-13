@@ -10,7 +10,8 @@ import './Controls.scss'
 const Controls = ({
   callbacksSorter,
   backgroundsSorter,
-  callbacksPaginator
+  callbacksPaginator,
+  countTextPaginator
 }) => {
   const labels = [
     'Sort by:',
@@ -20,7 +21,7 @@ const Controls = ({
   ]
   const labelsPaginator = [
     <IconLeft />,
-    '1/50',
+    countTextPaginator || 'Error',
     <IconRight />
   ]
 
