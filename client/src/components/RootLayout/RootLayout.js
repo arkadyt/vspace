@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import HomePage from '../_Pages/HomePage/HomePage'
 import ProductViewPage from '../_Pages/ProductViewPage/ProductViewPage'
+import LoginHistoryPage from '../_Pages/LoginHistoryPage/LoginHistoryPage'
 import NotFoundPage from '../_Pages/NotFoundPage/NotFoundPage'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import LoginForm from '../_Forms/LoginForm/LoginForm'
@@ -15,6 +16,7 @@ class RootLayout extends Component {
         <Switch>
           <PrivateRoute exact path="/" component={HomePage} />
           <PrivateRoute path="/product/:productId" component={ProductViewPage} />
+          <PrivateRoute path="/users" component={LoginHistoryPage} />
           <Route path="/login" component={LoginForm} />
           <Route component={NotFoundPage} />
         </Switch>

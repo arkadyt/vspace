@@ -2,20 +2,17 @@ import * as types from '../actions/types'
 
 const initialState = {
   data: [],
-  // redux does not merge empty objects when it updates state
-  // i'll figure out what to do later; here's quick hack for now
-  sortOpts: {
-    val: 'temphack'
-  }
+  sortOpts: {}
 }
 
 export default function (state = initialState, { type, payload }) {
     switch (type) {
         case types.LOAD_PRODUCTS:
           return {
+            ...state,
             data: [...payload.data, ...state.data],
             sortOpts: {
-              val: 'temphack',
+              ...state.sortOpts,
               ...payload.sortOpts
             }
           }

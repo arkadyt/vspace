@@ -2,13 +2,11 @@ import React from 'react'
 import { Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-function privateRoute({ 
+const privateRoute = ({ 
   component: Component, 
-  authedUser: { 
-    isAuthenticated 
-  }, 
+  isAuthenticated,
   ...rest 
-}) {
+}) => {
   return (
     <Route {...rest} render={props => 
         isAuthenticated
@@ -18,8 +16,8 @@ function privateRoute({
   )
 }
 
-export const mapStateToProps = state => ({
-    authedUser: state.users
+const mapStateToProps = state => ({
+    isAuthenticated: state.users.isAuthenticated
 })
 
 export default withRouter(connect(mapStateToProps)(privateRoute))

@@ -2,4 +2,18 @@
 
 .NotFoundPage-container {
   color: $color_font_primary;
+  width: 40rem;
+  text-align: center;
+  font-size: 1.5rem;
+
+  .NotFoundPage-icon {
+    font-size: 10rem;
+  }
+
+  .NotFoundPage-link {
+    display: block;
+    color: $color_font_primary;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
 }

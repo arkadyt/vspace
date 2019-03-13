@@ -39,7 +39,7 @@ class HomePage extends Component {
   
     let renderValue
 
-    if (products.length === 0) {
+    if (!products || products.length === 0) {
       loadProducts()
       renderValue = (
         <p>Please wait, loading...</p>

@@ -14,12 +14,8 @@ let store
 const middleware = [thunk]
 const initialState = {}
 
-if (process.env.NODE_ENV === 'development') {
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  store = createStore(persistedReducer, initialState, composeEnhancers(applyMiddleware(...middleware)))
-} else {
-  store = createStore(persistedReducer, initialState, compose(applyMiddleware(...middleware)))
-}
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+store = createStore(persistedReducer, initialState, composeEnhancers(applyMiddleware(...middleware)))
 
 let persistor = persistStore(store)
 
