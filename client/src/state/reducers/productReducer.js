@@ -2,7 +2,9 @@ import * as types from '../actions/types'
 
 const initialState = {
   data: [],
-  sortOpts: {}
+  sortOpts: {},
+  totalCount: 0,
+  pageIdx: 1
 }
 
 export default function (state = initialState, { type, payload }) {
@@ -10,11 +12,9 @@ export default function (state = initialState, { type, payload }) {
         case types.LOAD_PRODUCTS:
           return {
             ...state,
-            data: [...payload.data, ...state.data],
-            sortOpts: {
-              ...state.sortOpts,
-              ...payload.sortOpts
-            }
+            data: payload.data,
+            totalCount: parseInt(payload.headers['x-total-count']),
+            ...payload.options
           }
         default:
             return state
