@@ -6,6 +6,12 @@
 
   .Controls-sorter {
     flex-basis: 50rem;
+
+    & button:hover {
+      color: cornflowerblue;
+      background: inherit;
+      transition: all .10s ease;
+    }
   }
 
   .Controls-paginator {

@@ -34,8 +34,8 @@ class HomePage extends Component {
 
   getButtonBackground(sortOrder) {
     const dict = {
-      'asc': `rgba(0, 0, 0, .15)`,
-      'desc': `rgba(255, 255, 255, .15)`
+      'asc': `rgba(0, 0, 0, .10)`,
+      'desc': `rgba(255, 255, 255, .10)`
     }
     return dict[sortOrder]
   }
