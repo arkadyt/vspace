@@ -50,8 +50,6 @@ class HomePage extends Component {
       totalCount,
       pageIdx
     } = this.props
-  
-    console.log('homepage render call')
 
     let renderValue
 

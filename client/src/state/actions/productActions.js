@@ -24,22 +24,26 @@ function isNotNeutral(sortOpts) {
 }
 
 /**
- * Example: ?_sort=price,title&order=asc,desc
- *      Or: '' (if options are neutral)   
+ * Example: &_sort=price,title&order=asc,desc
+ *      Or: '' (if all options are neutral)   
  */
 function getSortingParams(sortOpts) {
   let queryString = ''
 
   if (isNotNeutral(sortOpts)) {
+    // value of undefined is used to denote no preference for sorting order,
+    // but is not recognized by json-server, so these have to be filtered out.
     let sortingPropsArray = Object.keys(sortOpts)
-    let sortingOrders = ''
+      .filter(key => !!sortOpts[key])
 
-    sortingPropsArray.map((key, idx) => { 
-      sortingOrders += 
-        idx === 0
-          ? sortOpts[key]
-          : ',' + sortOpts[key]
-    })
+    // multisort is most efficient and usable when properties are sorted in
+    // following order; this is a pretty hacky approach though,
+    // I should think of a better one.
+    const order = [ 'price', 'created_at', 'title' ]
+    sortingPropsArray = order.filter(item => sortingPropsArray.includes(item))
+
+    let sortingOrders = sortingPropsArray
+      .map((key, idx) => sortOpts[key]).join(',')
 
     let sortingProps = sortingPropsArray.join(',')
     queryString = `&_sort=${sortingProps}&_order=${sortingOrders}`
