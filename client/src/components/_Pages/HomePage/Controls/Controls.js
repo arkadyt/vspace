@@ -8,6 +8,8 @@ import BrowserControls from '../../../BrowserControls/BrowserControls'
 import './Controls.scss'
 
 const Controls = ({
+  callbacksSorter,
+  callbacksPaginator
 }) => {
   const labels = [
     'Sort by:',
@@ -15,22 +17,10 @@ const Controls = ({
     'Time',
     'Name'
   ]
-  const callbacks = [
-    undefined,
-    () => {},
-    () => {},
-    () => {},
-  ]
-
   const labelsPaginator = [
     <IconLeft />,
     '1/50',
     <IconRight />
-  ]
-  const callbacksPaginator = [
-    () => {},
-    undefined,
-    () => {},
   ]
 
   return (
@@ -38,7 +28,7 @@ const Controls = ({
       <BrowserControls 
         className="Controls-sorter"
         labels={labels}
-        callbacks={callbacks} />
+        callbacks={callbacksSorter} />
       <BrowserControls 
         className="Controls-paginator"
         labels={labelsPaginator}
