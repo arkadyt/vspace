@@ -5,6 +5,15 @@ import ContentPad from '../../ContentPad/ContentPad'
 import { fetchLoginHistory } from '../../../state/actions/userActions.js'
 import './LoginHistoryPage.scss'
 
+const dateFormatOptions = {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric'
+}
+
 const LoginHistoryPage = ({
   loginHistory,
   fetchLoginHistory
@@ -18,28 +27,31 @@ const LoginHistoryPage = ({
     )
   } else {
     renderValue = (
-      <Fragment>
-        <h2>Login history of this website:</h2>
+      <ContentPad className="LoginHistoryPage-content">
+        <h1 className="LoginHistoryPage-header">
+          Login history of this website:
+        </h1>
         {loginHistory.map((item, i) => {
           return (
             <p className="LoginHistoryPage-entry">
               <span className="LoginHistoryPage-username">
-                {item.username}
+                {item.username ? item.username : '{Someone in a hurry}'}
               </span>
               <span className="LoginHistoryPage-date">
-                {item.date}
+                {new Date(item.date)
+                    .toLocaleString('en-US', dateFormatOptions)}
               </span>
             </p>
           )
         })}
-      </Fragment>
+      </ContentPad>
     )
   }
 
   return (
-    <ContentPad className="LoginHistoryPage-container">
+    <div className="LoginHistoryPage-container">
       {renderValue}
-    </ContentPad>
+    </div>
   )
 }
 
