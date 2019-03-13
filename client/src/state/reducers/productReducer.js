@@ -14,7 +14,10 @@ export default function (state = initialState, { type, payload }) {
         case types.LOAD_PRODUCTS:
           return {
             data: [...payload.data, ...state.data],
-            sortOpts: payload.sortOpts
+            sortOpts: {
+              val: 'temphack',
+              ...payload.sortOpts
+            }
           }
         default:
             return state

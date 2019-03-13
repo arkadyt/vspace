@@ -112,7 +112,7 @@ const ProductViewPage = ({
 }
 
 const mapStateToProps = state => ({
-  products: state.products
+  products: state.products.data
 })
 
 export default connect(mapStateToProps)(ProductViewPage)
