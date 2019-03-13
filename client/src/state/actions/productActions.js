@@ -27,7 +27,7 @@ function isNotNeutral(sortOpts) {
  * Example: ?_sort=price,title&order=asc,desc
  *      Or: '' (if options are neutral)   
  */
-function getQueryString(sortOpts) {
+function getSortingParams(sortOpts) {
   let queryString = ''
 
   if (isNotNeutral(sortOpts)) {
@@ -42,23 +42,29 @@ function getQueryString(sortOpts) {
     })
 
     let sortingProps = sortingPropsArray.join(',')
-    queryString = `?_sort=${sortingProps}&_order=${sortingOrders}`
+    queryString = `&_sort=${sortingProps}&_order=${sortingOrders}`
   } 
 
   return queryString
 }
 
-export function loadProducts(sortOpts, callback) {
-  return dispatch => {
-    axios.get('/products' + getQueryString(sortOpts))
+export function loadProducts(options, callback) {
+  return (dispatch, getState) => {
+    // get current or updated values
+    // let fn users specify only the options they need
+    const { pageIdx, sortOpts } = { ...getState().products, ...options }
+
+    axios.get(`/products?_page=${pageIdx}&_limit=6${getSortingParams(sortOpts)}`)
       .then(res => {
         dispatch({
           type: types.LOAD_PRODUCTS,
           payload: {
             data: res.data,
-            sortOpts
+            headers: res.headers,
+            options
           }
         })
+
         if (callback) callback()
       })
       .catch(err => dispatch({
