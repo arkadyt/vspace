@@ -33,7 +33,7 @@ const LoginHistoryPage = ({
         </h1>
         {loginHistory.reverse().map((item, i) => {
           return (
-            <p className="LoginHistoryPage-entry">
+            <p className="LoginHistoryPage-entry" key={`history-${i}`}>
               <span className="LoginHistoryPage-username">
                 {item.username ? item.username : '{Someone in a hurry}'}
               </span>
