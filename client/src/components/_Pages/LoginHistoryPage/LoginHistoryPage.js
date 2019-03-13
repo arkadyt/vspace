@@ -31,7 +31,7 @@ const LoginHistoryPage = ({
         <h1 className="LoginHistoryPage-header">
           Login history of this website:
         </h1>
-        {loginHistory.map((item, i) => {
+        {loginHistory.reverse().map((item, i) => {
           return (
             <p className="LoginHistoryPage-entry">
               <span className="LoginHistoryPage-username">
