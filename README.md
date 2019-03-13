@@ -11,6 +11,7 @@ I've used `enzyme` for React components and `jest` to run tests. Tests [are set 
 It also has `99%` code coverage! (few minor branches are left untested)
 
 Backend app is hosted on GCP, on my ubuntu server, behind nginx reverse proxy in a docker container.<br/>
+Frontend is served from Firebase.<br/>
 [Site link](https://hp.arkadyt.com).
 
 # Run locally
