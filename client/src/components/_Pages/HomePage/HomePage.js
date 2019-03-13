@@ -9,10 +9,11 @@ import './HomePage.scss'
 
 class HomePage extends Component {
   setNextOrder(opts, field) {
+    console.log('setNextOrder', opts, field)
     const option = opts[field]
     
     if (option === 'desc') {
-      delete opts[field]
+      opts[field] = undefined
     } else if (option === 'asc') {
       opts[field] = 'desc'
     } else {
@@ -31,9 +32,18 @@ class HomePage extends Component {
     loadProducts(newOpts)
   }
 
+  getButtonBackground(sortOrder) {
+    const dict = {
+      'asc': `rgba(0, 0, 0, .15)`,
+      'desc': `rgba(255, 255, 255, .15)`
+    }
+    return dict[sortOrder]
+  }
+
   render() {
     const {
       products,
+      sortOpts,
       loadProducts
     } = this.props
   
@@ -54,11 +64,18 @@ class HomePage extends Component {
       const callbacksPaginator = [
         undefined,
       ]
+      const backgroundsSorter = [
+        undefined,
+        this.getButtonBackground(sortOpts['price']),
+        this.getButtonBackground(sortOpts['created_at']),
+        this.getButtonBackground(sortOpts['title'])
+      ]
 
       renderValue = (
         <Fragment>
           <Controls
-            callbacksSorter={callbacksSorter} 
+            callbacksSorter={callbacksSorter}
+            backgroundsSorter={backgroundsSorter}
             callbacksPaginator={callbacksPaginator} />
           <div className="HomePage-grid">
           {products.map((item, idx) => {

@@ -9,6 +9,7 @@ import './Controls.scss'
 
 const Controls = ({
   callbacksSorter,
+  backgroundsSorter,
   callbacksPaginator
 }) => {
   const labels = [
@@ -28,6 +29,7 @@ const Controls = ({
       <BrowserControls 
         className="Controls-sorter"
         labels={labels}
+        colors={backgroundsSorter}
         callbacks={callbacksSorter} />
       <BrowserControls 
         className="Controls-paginator"

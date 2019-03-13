@@ -4,6 +4,7 @@ import './BrowserControls.scss'
 
 const BrowserControls = ({
   labels,
+  colors,
   callbacks,
   className
 }) => {
@@ -18,6 +19,7 @@ const BrowserControls = ({
             <button
               key={`button-${i}`}
               className="BrowserControls-button"
+              style={{ background: colors && colors[i] }}
               onClick={callback}>
               {labels[i]}
             </button>
