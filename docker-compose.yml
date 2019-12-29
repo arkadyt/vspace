@@ -1,20 +1,16 @@
-version: "3"
-
+version: "3.1"
 services:
+
   api:
     build: ./server
     restart: always
     depends_on: 
       - db
     env_file:
-      - /home/arkadyt/code/private/env/hp.env
+      - .env
     ports:
-      - 5003:5003
+      - ${PORT}:5003
 
   db:
     image: mongo:4.0.5-xenial
     restart: always
-    ports:
-      - 27018:27017
-    volumes:
-      - /home/arkadyt/volumes/mongodb_hp:/data/db
