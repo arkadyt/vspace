@@ -2,4 +2,7 @@ node_modules/
 
 yarn.lock
 config/keys.dev.js
+.env
+server/.env
 .tern-port
+npm-debug*

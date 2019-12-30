@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const { MONGO_URI } = require('./config/keys.js')
+const MONGO_URI = process.env.MONGO_URI
 
 /**
  * Attempts to connect to MongoDB.

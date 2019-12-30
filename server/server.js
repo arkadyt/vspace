@@ -1,5 +1,6 @@
 global.__basedir = __dirname;
 
+const env = require('dotenv').config()
 const express = require('express')
 const { jsonServer, jsonServerRewriter } = require('./api/product.js')
 const userRouter = require('./api/user.js')
@@ -17,6 +18,6 @@ app.use('/users', userRouter)
 app.use(jsonServer)
 
 dbConnection.connectToDB(() => {
-  const PORT = process.env.PORT || 5501
+  const PORT = 5000
   app.listen(PORT, () => console.log('Express app is live at ' + PORT))
 })
