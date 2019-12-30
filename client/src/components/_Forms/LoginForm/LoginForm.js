@@ -24,11 +24,11 @@ class LoginForm extends Component {
       <ContentPad className="LoginForm-container">
         <form onSubmit={this.handleSubmit.bind(this)}>
           <h1>Please login</h1>
-          <p>To proceed, please login by entering your name in the box below:</p>
+          <p>Sum of 2 + 2 = ?</p>
           <Field
             value={this.state.name}
             onChange={e => this.setState({ name: e.target.value })}
-            placeholder="eg. Arnold" />
+            placeholder="eg. 5" />
           <Field
             type="submit"
             value="Log in" />
