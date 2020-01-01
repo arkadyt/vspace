@@ -5,7 +5,7 @@ let whitelist
 if (process.env.NODE_ENV === 'development') {
   whitelist = ['http://localhost:3000']
 } else {
-  whitelist = ['https://hp.arkadyt.com']
+  whitelist = ['https://vspace.arkadyt.com']
 }
 
 console.log('CORS whitelist:', whitelist)

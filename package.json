@@ -1,8 +1,8 @@
 {
-  "name": "hp-take-home",
+  "name": "vspace",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/arkadyt/hp-take-home",
+  "repository": "https://github.com/arkadyt/vspace",
   "author": "arkadyt <23281304+arkadyt@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
