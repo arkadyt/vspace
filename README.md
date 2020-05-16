@@ -2,11 +2,11 @@
 
 ## Web address
 
-Example app is hosted at (vspace.arkadyt.dev)[https://vspace.arkadyt.dev].
+Example app is hosted at [vspace.arkadyt.dev](https://vspace.arkadyt.dev).
 
 ## Description
 
-This is an open source e-commerce website project. It's built on MERN stack (MongoDB, Express, React.js, Node). It defines many UI components, forms and utilities that can help you bootstrap your own e-commerce application. Take a look around the repository!
+This is an open source e-commerce website project. It's built on MERN stack (MongoDB, Express, React.js, Node). It defines many UI components, forms and utilities that can help you bootstrap your own e-commerce application. Take a look around!
 
 You are also more than welcome to fork this project and build something of your own on top of it! Following sections of this readme explain how to launch the application locally, deploy it and run tests.
 
