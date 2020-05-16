@@ -6,9 +6,9 @@ import * as serviceWorker from './serviceWorker'
 import axios from 'axios'
 
 if (process.env.NODE_ENV === 'development') {
-  axios.defaults.baseURL = "http://localhost:5000"
+  axios.defaults.baseURL = "http://localhost:5051"
 } else {
-  axios.defaults.baseURL = "https://apis.arkadyt.com/vspace"
+  axios.defaults.baseURL = "https://apis.arkadyt.dev/vspace"
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))

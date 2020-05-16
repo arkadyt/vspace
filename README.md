@@ -1,52 +1,77 @@
-# Description
-I've decided to take a route of manual styling of the frontend application with SCSS.<br/>
-It took me longer than recommended, to complete the whole thing, but I really enjoyed it!
+<img src="readme-media/main.jpg" alt="">
 
-The only things that I haven't done from the .docx are:
-* SSR
-* Testing
+## Web address
 
-But you can check out [tests that I wrote for a similar application](https://github.com/arkadyt/ww.net/tree/master/client/src/components) written in the same stack a couple months ago!<br/>
-I've used `enzyme` for React components and `jest` to run tests. Tests [are set up to run on](https://github.com/arkadyt/ww.net/blob/master/.travis.yml) `Travis CI` servers.<br/>
-It also has `99%` code coverage! (few minor branches are left untested)
+Example app is hosted at (vspace.arkadyt.dev)[https://vspace.arkadyt.dev].
 
-Backend app is hosted on GCP, on my ubuntu server, behind nginx reverse proxy in a docker container.<br/>
-Frontend is served from Firebase.<br/>
-[Site link](https://hp.arkadyt.com).
+## Description
 
-# Run locally
+This is an open source e-commerce website project. It's built on MERN stack (MongoDB, Express, React.js, Node). It defines many UI components, forms and utilities that can help you bootstrap your own e-commerce application. Take a look around the repository!
 
-First setup the database:
+You are also more than welcome to fork this project and build something of your own on top of it! Following sections of this readme explain how to launch the application locally, deploy it and run tests.
+
+## Run locally
+
+Clone the repository:
+
 ```
-sudo service mongod start
-
-mongo
-> use hp
-> db.createUser({ user: "username", pwd: "password", roles: [ "userAdmin" ] });
-> exit
+git clone git@github.com:arkadyt/vspace.git && cd vspace
 ```
 
-Then create `server/config/keys.dev.js` file and place this into it:
+Add an .env file to the repo root:
+
 ```
-module.exports = {
-  MONGO_URI: 'mongodb://<user>:<pwd>@localhost:27017/hp'
-}
+PORT=5050
+NODE_ENV=development
+
+# intentionally not configuring db auth
+MONGO_URI='mongodb://db:27017/wework'
 ```
 
-Then run:
-```
-# cd into repo root and:
-export NODE_ENV=development
-yarn run install
-yarn run dev
+Run and view the app:
 
-# you can also choose to run backend with docker-compose
-# but that would require an .env file containing
-# MONGO_URI and NODE_ENV variables
-docker-compose build
+```
 docker-compose up -d
+cd ./client && yarn && yarn start
+```
 
-# troubleshooting ports
-sudo netstat -nlp | egrep '3000|5501'
-kill $PIDs
+## Run tests
+
+```
+# to run client-side tests
+cd ./client && yarn test
+
+# to run server-side tests
+cd ./server && yarn test
+```
+
+## Deploying the application
+
+To deploy the frontend bundle to S3 refer to the ./client/deploy.sh deployment script.
+
+Deploying the backend application depends on your preferences. The example deployment which I referenced in Web Address section of this README file is deployed onto an EC2 instance with a bootstrap script. You can find the script here: https://github.com/arkadyt/dotfiles/blob/master/cloud/api-servers/foss-other/aws-ec2-build.sh. This type of deployment is obviously NOT suitable for production, but gives you an idea of what's needed to successfully deploy this application.
+
+## License
+
+```
+The MIT License (MIT)
+
+Copyright © 2020, Andrew Titenko
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
