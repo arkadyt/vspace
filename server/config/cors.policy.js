@@ -3,7 +3,7 @@ const cors = require('cors')
 let whitelist
 
 if (process.env.NODE_ENV === 'development') {
-  whitelist = ['http://localhost:3000']
+  whitelist = ['http://localhost:5777']
 } else {
   whitelist = ['https://vspace.arkadyt.com']
 }

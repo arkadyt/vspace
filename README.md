@@ -6,7 +6,7 @@ Example app is hosted at [vspace.arkadyt.dev](https://vspace.arkadyt.dev).
 
 ## Description
 
-This is an open source e-commerce website project. It's built on MERN stack (MongoDB, Express, React.js, Node). It defines many UI components, forms and utilities that can help you bootstrap your own e-commerce application. Take a look around!
+This is an open source e-commerce website project. It's built on MERN stack (MongoDB, Express, React.js, Node). It defines many UI components, forms and utilities that can help you bootstrap your own e-commerce application. Take a look around! Keep in mind though that this project is still WIP.
 
 You are also more than welcome to fork this project and build something of your own on top of it! Following sections of this readme explain how to launch the application locally, deploy it and run tests.
 
@@ -21,11 +21,11 @@ git clone git@github.com:arkadyt/vspace.git && cd vspace
 Add an .env file to the repo root:
 
 ```
-PORT=5050
+PORT=5051
 NODE_ENV=development
 
 # intentionally not configuring db auth
-MONGO_URI='mongodb://db:27017/wework'
+MONGO_URI='mongodb://db:27017/vspace'
 ```
 
 Run and view the app:
