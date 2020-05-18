@@ -8,11 +8,10 @@ export $(xargs < ./.env.deploy)
 ./node_modules/deploy-aws-s3-cloudfront/bin/deploy-aws-s3-cloudfront \
   --acl private \
   --bucket apphost-7 \
-  --cache-control index.html:no-cache \
+  --cache-control "**:no-cache" \
   --delete \
   --source ./build \
   --destination vspace \
   --distribution E3C8AR5JG7D1W9 \
   --invalidation-path "/*" \
   --non-interactive
-

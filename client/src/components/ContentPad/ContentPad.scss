@@ -7,5 +7,10 @@
   box-shadow: $shadow_secondary;
   padding: 3rem;
   overflow: hidden;
+
+  @media (orientation: portrait) {
+    padding: 3rem;
+    width: 20rem;
+  }
 }
 

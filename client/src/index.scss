@@ -12,6 +12,10 @@
 
 html {
   font-size: 75%;
+
+  @media (orientation: portrait) {
+    font-size: 3vw;
+  }
 }
 
 body {
